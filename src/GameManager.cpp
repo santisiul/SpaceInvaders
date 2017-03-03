@@ -8,6 +8,7 @@ template<> GameManager* Ogre::Singleton<GameManager>::msSingleton = 0;
 GameManager::GameManager ()
 {
   _root = 0;
+  ui = new UI();  
 }
 
 GameManager::~GameManager ()
@@ -25,6 +26,7 @@ void
 GameManager::start
 (GameState* state)
 {
+  
   // Creación del objeto Ogre::Root.
   _root = new Ogre::Root();
   
@@ -32,6 +34,8 @@ GameManager::start
 
   if (!configure())
     return;    
+
+  //ui->createGUI();
   	
   _inputMgr = new InputManager;
   _inputMgr->initialise(_renderWindow);
@@ -114,6 +118,7 @@ GameManager::loadResources ()
             (datastr, typestr, sectionstr);	
     }
   }
+  //Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 }
 
 bool

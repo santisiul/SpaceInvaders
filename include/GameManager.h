@@ -27,12 +27,14 @@
 #include <OIS/OIS.h>
 
 #include "InputManager.h"
+#include "UI.h"
 
 class GameState;
 
 class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManager>, public OIS::KeyListener, public OIS::MouseListener
 {
  public:
+  UI* ui;
   GameManager ();
   ~GameManager (); // Limpieza de todos los estados.
 
@@ -52,6 +54,7 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneManager;
   Ogre::RenderWindow* _renderWindow;
+
 
   // Funciones de configuración.
   void loadResources ();
