@@ -15,35 +15,42 @@ PlayState::enter ()
   // Nuevo background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 
+  fisics = new Fisics();
   parent = new Enemy();
   player = new Player();
   player->getNode()->setPosition(Ogre::Vector3(0,0,30));
+
+  fisics->subscribe(player);
+
+  for (int i = 0; i < 20; ++i)
+  {
+    Projectile* projectile = new Projectile();
+    //projectile->deactivate();
+    projectile->getNode()->setPosition(Ogre::Vector3(0,0,80));
+    projectiles.push_back(projectile);
+    fisics->subscribe(projectile);
+  }
 
   int z = 0;
   int x = 0;
   for (int i = 0; i < 10; ++i)
   {
     if (i%5 == 0){ z-=8; x=0;}
-    cout<<x;
+   // cout<<x;
     
     //ostringstream sstrm; sstrm<<"enemy"<<i;
     Enemy* enemy = new Enemy(parent->getNode());
     enemy->getNode()->setPosition(Ogre::Vector3(x*3 -6, 0, z));
     Enemies.push_back(enemy);
+    fisics->subscribe(enemy);
 
     x++;
-  }
-
-  for (int i = 0; i < 5; ++i)
-  {
-    Projectile* projectile = new Projectile();
-    projectile->deactivate();
-    projectile->getNode()->setPosition(Ogre::Vector3(0,0,80));
-    projectiles.push_back(projectile);
   }
     
   _exitGame = false;
   axisX = 0;
+  time = 0;
+  chronometer = 0;
 }
 
 void
@@ -69,16 +76,31 @@ bool
 PlayState::frameStarted
 (const Ogre::FrameEvent& evt)
 {
+  deltaT = evt.timeSinceLastFrame;
+  time *= deltaT;
+
   if(axisX != 0)
     player->update(axisX);
 
-  parent->update();
+  //parent->update();
+  for (std::vector<Enemy*>::iterator i = Enemies.begin(); i != Enemies.end(); ++i)
+  {
+    (*i)->update();
+  }
 
+  //Actualiza posiciones de los projectiles
   for (std::vector<Projectile*>::iterator i = projectiles.begin(); i != projectiles.end(); ++i)
   {
     if ((*i)->isActive()) { (*i)->update(); } 
   }
-  cout<<endl;
+  //Calcula colisiones de objetos
+ // chronometer  += deltaT;
+  //if(chronometer > 1){
+    fisics->calculateCollisions();
+   // chronometer = 0;
+  //}
+  
+  
   return true;
 }
 
@@ -106,7 +128,7 @@ PlayState::keyPressed
 
   if(e.key == OIS::KC_SPACE){
     bool empty = true;
-    Ogre::Vector3 pos = player->getNode()->getPosition();
+    Ogre::Vector3 pos = player->getNode()->getPosition() + Ogre::Vector3(0,0,-2);
     for (std::vector<Projectile*>::iterator i = projectiles.begin(); i != projectiles.end(); ++i)
     {
       if(!(*i)->isActive()){

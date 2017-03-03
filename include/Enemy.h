@@ -11,6 +11,7 @@ public:
 	~Enemy();
 
 	void update();
+	void onCollision(GameObject* gameObject);
 
 private:
 	int dir;

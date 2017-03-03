@@ -28,6 +28,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "Projectile.h"
+#include "Fisics.h"
 
 class PlayState : public Ogre::Singleton<PlayState>, public GameState
 {
@@ -61,10 +62,14 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
 
   bool _exitGame;
 
+  Ogre::Real time;
+  Ogre::Real deltaT;
+  Ogre::Real chronometer;
+  Fisics* fisics;
   Player* player;
   Enemy* parent;
   float axisX;
-  std::vector<GameObject*> Enemies;
+  std::vector<Enemy*> Enemies;
   std::vector<Projectile*> projectiles;
 };
 

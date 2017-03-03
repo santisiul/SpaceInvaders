@@ -22,8 +22,11 @@ class GameObject
 	void setTag(string tag);
 
 	Ogre::SceneNode* getNode() const;
+	void setCollider(int radius);
+	int getCollider () const;
 
 	virtual void update();
+	virtual void onCollision(GameObject* gO);
 
   private:
 	Ogre::SceneNode* node;

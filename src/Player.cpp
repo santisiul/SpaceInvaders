@@ -1,6 +1,9 @@
 #include "Player.h"
 
-Player::Player(string mesh, string material): GameObject(mesh, material){}
+Player::Player(string mesh, string material): GameObject(mesh, material){ 
+	setTag("player");
+	setCollider(1);
+}
 //Player::Player(string mesh, string nameNode, string material, Ogre::SceneNode* parent): GameObject(mesh, nameNode, material, parent){}
 
 void Player::update(float axisX){
@@ -13,4 +16,8 @@ void Player::update(float axisX){
 	pos += Ogre::Vector3(x,0,0);
 	getNode()->setPosition(pos);
 
+}
+
+void Player::onCollision(GameObject* gameObject){
+	
 }

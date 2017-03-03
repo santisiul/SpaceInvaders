@@ -11,6 +11,7 @@ public:
 	~Player();
 
 	void update(float axisX);
+	void onCollision(GameObject* gameObject);
 	
 };
 #endif

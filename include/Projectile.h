@@ -11,6 +11,7 @@ public:
 	~Projectile();
 
 	void update();
+	void onCollision(GameObject* gameObject);
 
 private:
 	static string mesh;
