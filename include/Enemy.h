@@ -10,8 +10,10 @@ public:
 	Enemy(Ogre::SceneNode* parent);
 	~Enemy();
 
-	void update();
-	void onCollision(GameObject* gameObject);
+	bool shoot(Ogre::Vector3 posPlayer);
+	void update(Ogre::Real deltaT);
+	void onCollision(GameObject* collision);
+	void deactivate();
 
 private:
 	int dir;

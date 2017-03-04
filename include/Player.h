@@ -10,7 +10,7 @@ public:
 	//Player(string mesh, string nameNode, string material, Ogre::SceneNode* parent);
 	~Player();
 
-	void update(float axisX);
+	void update(Ogre::Real axisX, Ogre::Real deltaT);
 	void onCollision(GameObject* gameObject);
 	
 };

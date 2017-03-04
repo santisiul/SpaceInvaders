@@ -54,6 +54,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   static PlayState& getSingleton ();
   static PlayState* getSingletonPtr ();
 
+  void shootProjectile(GameObject* shooter);
+
  protected:
   Ogre::Root* _root;
   Ogre::SceneManager* _sceneMgr;
@@ -68,7 +70,7 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Fisics* fisics;
   Player* player;
   Enemy* parent;
-  float axisX;
+  Ogre::Real axisX;
   std::vector<Enemy*> Enemies;
   std::vector<Projectile*> projectiles;
 };

@@ -10,11 +10,17 @@ public:
 	Projectile(Ogre::SceneNode* parent);
 	~Projectile();
 
-	void update();
+	void update(Ogre::Real deltaT);
 	void onCollision(GameObject* gameObject);
+	void start(GameObject* shooter);
+	GameObject* getShooter() const;
+	//void GameObject::deactivate();
 
 private:
 	static string mesh;
 	static string material;
+
+	GameObject* shooter;
+	int dir;
 };
 #endif
