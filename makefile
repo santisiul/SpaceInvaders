@@ -16,8 +16,8 @@ CXXFLAGS += -I/usr/local/include/cegui-0/CEGUI -I/usr/local/include/cegui-0
 
 # Flags del linker ---------------------------------------------------
 LDFLAGS := `pkg-config --libs-only-L OGRE`
-LDFLAGS += -lCEGUIBase-0 -lCEGUIOgreRenderer-0
-LDLIBS := `pkg-config --libs-only-l gl OIS OGRE` -lstdc++ -lboost_system
+	LDFLAGS += -lCEGUIBase-0 -lCEGUIOgreRenderer-0
+LDLIBS := `pkg-config --libs-only-l gl OIS OGRE SDL2_mixer` -lstdc++ -lboost_system
 
 # Modo de compilación (-mode=release -mode=debug) --------------------
 ifeq ($(mode), release) 

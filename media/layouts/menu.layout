@@ -2,38 +2,49 @@
 
 <GUILayout version="4" >
     <Window type="TaharezLook/FrameWindow" name="menu" >
-        <Property name="Area" value="{{0,0},{0.15,0},{0.23,300},{0.33,300}}" />
+        <Property name="Area" value="{{0,0},{0,0},{0.35,0},{0.7,0}}" />
+        <Property name="Alpha" value="0.8" />
+        <Property name="FrameEnabled" value="false" />
+        <Property name="SizingEnabled" value="false" />
         <Property name="TitlebarEnabled" value="false" />
+        <Property name="ClientAreaColour" value="tl:9964C8FE tr:9964C8FE bl:99010101 br:99010101" />
+        <Property name="VerticalAlignment" value="Centre" />
+        <Property name="CloseButtonEnabled" value="false" />
         <Property name="HorizontalAlignment" value="Centre" />
         <Window type="TaharezLook/StaticText" name="title" >
             <Property name="Area" value="{{0,0},{0.14,0},{0.36,0},{0.28,0}}" />
-            <Property name="Text" value="MasterMind" />
+            <Property name="Text" value="Space Invaders" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="HorzScrollPageSize" value="246" />
-            <Property name="VertScrollPageSize" value="51" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="149" />
+            <Property name="VertScrollPageSize" value="59" />
             <Property name="HorizontalAlignment" value="Centre" />
-            <Property name="HorzScrollDocumentSize" value="138" />
-            <Property name="VertScrollDocumentSize" value="27.9375" />
+            <Property name="HorzScrollDocumentSize" value="122" />
+            <Property name="VertScrollDocumentSize" value="18.625" />
         </Window>
         <Window type="TaharezLook/Button" name="PlayButton" >
-            <Property name="Area" value="{{0,0},{0.4,0},{0.22,0},{0.5,0}}" />
-            <Property name="Text" value="Jugar" />
-            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="Area" value="{{0,0},{0.4,0},{0.55,0},{0.47,0}}" />
+            <Property name="Text" value="  Play" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzLabelFormatting" value="LeftAligned" />
         </Window>
         <Window type="TaharezLook/Button" name="ScoreButton" >
-            <Property name="Area" value="{{0,0},{0.52,0},{0.22,0},{0.62,0}}" />
-            <Property name="Text" value="Score" />
-            <Property name="HorizontalAlignment" value="Centre" />
-        </Window>
-        <Window type="TaharezLook/Button" name="CreditsButton" >
-            <Property name="Area" value="{{0,0},{0.64,0},{0.22,0},{0.74,0}}" />
-            <Property name="Text" value="Credits" />
-            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="Area" value="{{0,0},{0.5,0},{0.55,0},{0.57,0}}" />
+            <Property name="Text" value="  Score" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzLabelFormatting" value="LeftAligned" />
         </Window>
         <Window type="TaharezLook/Button" name="ExitButton" >
-            <Property name="Area" value="{{0,0},{0.76,0},{0.22,0},{0.86,0}}" />
-            <Property name="Text" value="Salir" />
-            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="Area" value="{{0,0},{0.7,0},{0.55,0},{0.77,0}}" />
+            <Property name="Text" value="  Exit" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzLabelFormatting" value="LeftAligned" />
+        </Window>
+        <Window type="TaharezLook/Button" name="CreditsButton" >
+            <Property name="Area" value="{{0,0},{0.6,0},{0.55,0},{0.67,0}}" />
+            <Property name="Text" value="  Credits" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzLabelFormatting" value="LeftAligned" />
         </Window>
     </Window>
 </GUILayout>

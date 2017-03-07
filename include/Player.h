@@ -6,7 +6,7 @@
 class Player: public GameObject
 {
 public:
-	Player(string mesh = "Sphere.mesh", string material = "red");
+	Player(string mesh = "spaceship.mesh", string material = "s101c");
 	//Player(string mesh, string nameNode, string material, Ogre::SceneNode* parent);
 	~Player();
 

@@ -23,7 +23,7 @@ void Fisics::calculateCollisions(){
 					squaredDistance = (*i)->getCollider() + (*it)->getCollider();
 					squaredDistance *= squaredDistance;
 
-					if((*i)->getNode()->getPosition().squaredDistance((*it)->getNode()->getPosition()) < squaredDistance){
+					if((*i)->getNode()->getPosition().squaredDistance((*it)->getNode()->getPosition()) < squaredDistance){						
 						(*it)->onCollision(*i);
 						(*i)->onCollision(*it);
 					}

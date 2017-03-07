@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="TaharezLook/GroupBox" name="game" >
+        <Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="VerticalAlignment" value="Centre" />
+        <Property name="HorizontalAlignment" value="Centre" />
+        <Window type="TaharezLook/StaticText" name="clock" >
+            <Property name="Area" value="{{0,-200},{0,0},{0.1,-200},{0.1,-19}}" />
+            <Property name="Text" value="Pts" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzScrollPageSize" value="114" />
+            <Property name="VertScrollPageSize" value="38" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzScrollDocumentSize" value="25" />
+            <Property name="VertScrollDocumentSize" value="18.625" />
+        </Window>
+        <Window type="TaharezLook/Button" name="PauseButton" >
+            <Property name="Area" value="{{0,-20},{0,0},{0.08,-20},{0.08,-10}}" />
+            <Property name="Text" value=" || " />
+            <Property name="HorizontalAlignment" value="Right" />
+        </Window>
+        
+        <Window type="TaharezLook/FrameWindow" name="panel" >
+            <Property name="Area" value="{{0,0},{0,0},{0.35,0},{0.7,0}}" />
+            <Property name="Alpha" value="0.8" />
+            <Property name="FrameEnabled" value="false" />
+            <Property name="SizingEnabled" value="false" />
+            <Property name="TitlebarEnabled" value="false" />
+            <Property name="ClientAreaColour" value="tl:9964C8FE tr:9964C8FE bl:99010101 br:99010101" />
+            <Property name="VerticalAlignment" value="Centre" />
+            <Property name="CloseButtonEnabled" value="false" />
+            <Property name="HorizontalAlignment" value="Centre" />
+
+            <Window type="TaharezLook/StaticText" name="title" >
+                <Property name="Area" value="{{0,0},{0.14,0},{0.36,0},{0.28,0}}" />
+                <Property name="Text" value="Space Invaders" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="HorzFormatting" value="CentreAligned" />
+                <Property name="HorzScrollPageSize" value="149" />
+                <Property name="VertScrollPageSize" value="59" />
+                <Property name="HorizontalAlignment" value="Centre" />
+                <Property name="HorzScrollDocumentSize" value="122" />
+                <Property name="VertScrollDocumentSize" value="18.625" />
+            </Window>
+            <Window type="TaharezLook/Button" name="finishButton" >
+                <Property name="Text" value="  Exit" />
+                <Property name="Area" value="{{0,0},{0.45,0},{0.55,0},{0.52,0}}" />
+                <Property name="HorizontalAlignment" value="Right" />
+                <Property name="HorzLabelFormatting" value="LeftAligned" />
+            </Window>
+            <Window type="TaharezLook/Button" name="restartButton" >
+                <Property name="Area" value="{{0,0},{0.55,0},{0.55,0},{0.62,0}}" />
+                <Property name="Text" value="  Restart" />
+                <Property name="HorizontalAlignment" value="Right" />
+                <Property name="HorzLabelFormatting" value="LeftAligned" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>

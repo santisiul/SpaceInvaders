@@ -24,7 +24,11 @@
 #include <Ogre.h>
 #include <OIS/OIS.h>
 
+#include "TrackManager.h"
+#include "SoundFXManager.h"
+
 #include "GameState.h"
+
 #include "Enemy.h"
 #include "Player.h"
 #include "Projectile.h"
@@ -55,6 +59,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   static PlayState* getSingletonPtr ();
 
   void shootProjectile(GameObject* shooter);
+  void soundExplode();
+  void quit();
 
  protected:
   Ogre::Root* _root;
@@ -63,6 +69,10 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   Ogre::Camera* _camera;
 
   bool _exitGame;
+
+  TrackPtr _loopTrack;
+  SoundFXPtr _shoot;
+  SoundFXPtr _explode;
 
   Ogre::Real time;
   Ogre::Real deltaT;

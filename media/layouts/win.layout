@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="TaharezLook/FrameWindow" name="win" >
+        <Property name="Area" value="{{0,0},{0,0},{0.35,0},{0.7,0}}" />
+        <Property name="Alpha" value="0.8" />
+        <Property name="FrameEnabled" value="false" />
+        <Property name="SizingEnabled" value="false" />
+        <Property name="TitlebarEnabled" value="false" />
+        <Property name="ClientAreaColour" value="tl:9964C8FE tr:9964C8FE bl:99010101 br:99010101" />
+        <Property name="VerticalAlignment" value="Centre" />
+        <Property name="CloseButtonEnabled" value="false" />
+        <Property name="HorizontalAlignment" value="Centre" />
+        <Window type="TaharezLook/StaticText" name="title" >
+            <Property name="Area" value="{{0,0},{0.16,0},{0.36,0},{0.28,0}}" />
+            <Property name="Text" value="Ganaste" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="149" />
+            <Property name="VertScrollPageSize" value="48" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="67" />
+            <Property name="VertScrollDocumentSize" value="18.625" />
+        </Window>
+        <Window type="TaharezLook/Label" name="nameLabel" >
+            <Property name="Area" value="{{0,-120},{0.4,0},{0.2,-120},{0.5,0}}" />
+            <Property name="Text" value="Nombre" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="TaharezLook/Editbox" name="nameEditbox" >
+            <Property name="Area" value="{{0,56},{0.4,0},{0.23,183},{0.48,0}}" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="TaharezLook/Button" name="finishButton" >
+            <Property name="Area" value="{{0,0},{0.7,0},{0.55,0},{0.77,0}}" />
+            <Property name="Text" value="  Exit" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzLabelFormatting" value="LeftAligned" />
+        </Window>
+        <Window type="TaharezLook/Button" name="restartButton" >
+            <Property name="Area" value="{{0,0},{0.8,0},{0.55,0},{0.87,0}}" />
+            <Property name="Text" value="  Restart" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzLabelFormatting" value="LeftAligned" />
+        </Window>
+    </Window>
+</GUILayout>

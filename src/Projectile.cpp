@@ -1,4 +1,5 @@
 #include "Projectile.h"
+#include "PlayState.h"
 
 string Projectile::mesh = "bullet.mesh";
 string Projectile::material = "green";
@@ -48,9 +49,10 @@ void Projectile::update(Ogre::Real deltaT){
 
 void Projectile::onCollision(GameObject* collision){
 	if(shooter->getTag() != collision->getTag()){
+		PlayState::getSingletonPtr()->soundExplode();
+		
 		deactivate();
 		getNode()->setPosition(Ogre::Vector3(0,0,80));
-
 		if(collision->getTag() != "player")
 			collision->deactivate();
 	}	

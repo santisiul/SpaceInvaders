@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="TaharezLook/FrameWindow" name="score" >
+        <Property name="Area" value="{{0,0},{0,0},{0.35,0},{0.7,0}}" />
+        <Property name="Text" value="Format String Window" />
+        <Property name="Alpha" value="0.8" />
+        <Property name="FrameEnabled" value="false" />
+        <Property name="SizingEnabled" value="false" />
+        <Property name="TitlebarEnabled" value="false" />
+        <Property name="ClientAreaColour" value="tl:9964C8FE tr:9964C8FE bl:99010101 br:99010101" />
+        <Property name="VerticalAlignment" value="Centre" />
+        <Property name="CloseButtonEnabled" value="false" />
+        <Property name="HorizontalAlignment" value="Centre" />
+        <Window type="TaharezLook/StaticText" name="title" >
+            <Property name="Area" value="{{0,0},{0.14,0},{0.36,0},{0.28,0}}" />
+            <Property name="Text" value="Space Invaders" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="149" />
+            <Property name="VertScrollPageSize" value="59" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="122" />
+            <Property name="VertScrollDocumentSize" value="18.625" />
+        </Window>
+        <Window type="TaharezLook/StaticText" name="section" >
+            <Property name="Area" value="{{-0.1,0},{0.33,0},{0.26,0},{0.45,-36}}" />
+            <Property name="Text" value="Score" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzScrollPageSize" value="149" />
+            <Property name="VertScrollPageSize" value="12" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="45" />
+            <Property name="VertScrollDocumentSize" value="18.625" />
+        </Window>
+        <Window type="TaharezLook/StaticText" name="text" >
+            <Property name="Area" value="{{0,0},{0.42,0},{0.3,0},{0.72,0}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzScrollPageSize" value="122" />
+            <Property name="VertScrollPageSize" value="139" />
+            <Property name="HorizontalAlignment" value="Centre" />
+        </Window>
+        <Window type="TaharezLook/Button" name="ReturnButton" >
+            <Property name="Area" value="{{0,0},{0.8,0},{0.55,0},{0.87,0}}" />
+            <Property name="Text" value="  Back" />
+            <Property name="HorizontalAlignment" value="Right" />
+            <Property name="HorzLabelFormatting" value="LeftAligned" />
+        </Window>
+    </Window>
+</GUILayout>

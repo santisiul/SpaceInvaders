@@ -13,58 +13,17 @@ class UI{
 	UI(){};
 	~UI(){};
 
-	void createGUI(){
-	  //CEGUI
-	  renderer = &CEGUI::OgreRenderer::bootstrapSystem();
-	  CEGUI::Scheme::setDefaultResourceGroup("Schemes");
-	  CEGUI::ImageManager::setImagesetDefaultResourceGroup("Imagesets");
-	  CEGUI::Font::setDefaultResourceGroup("Fonts");
-	  CEGUI::WindowManager::setDefaultResourceGroup("Layouts");
-	  CEGUI::WidgetLookManager::setDefaultResourceGroup("LookNFeel");
+	void createGUI();
 
-	  CEGUI::SchemeManager::getSingleton().createFromFile("TaharezLook.scheme");
-	  CEGUI::System::getSingleton().getDefaultGUIContext().setDefaultFont("DejaVuSans-12");
-	  CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().setDefaultImage("TaharezLook/MouseArrow");
+	bool quit(const CEGUI::EventArgs &e);
+	bool credits(const CEGUI::EventArgs &e);
+	bool play(const CEGUI::EventArgs &e);
+	bool score(const CEGUI::EventArgs &e);
+	bool back(const CEGUI::EventArgs &e);
+	bool pause(const CEGUI::EventArgs &e);
+	bool finish(const CEGUI::EventArgs &e);
+	bool restart(const CEGUI::EventArgs &e);
 
-	  // Let's make the OS and the CEGUI cursor be in the same place
-	  CEGUI::Vector2f mousePos = CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().getPosition();  
-	  CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseMove(-mousePos.d_x,-mousePos.d_y);
-	 
-	  CEGUI::FontManager::getSingleton().createAll("*.font", "Fonts");
-
-	  CEGUI::FontManager::getSingleton().createAll("*.font", "Fonts");
-	  //Sheet
-	  CEGUI::Window* sheet = CEGUI::WindowManager::getSingleton().createWindow("DefaultWindow","Ex2");
-
-	  //Config Window
-	  CEGUI::Window* menu = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("menu.layout");
-	  
-	  
-	  CEGUI::Window* exitButton = menu->getChild("ExitButton");
-	  
-	//  exitButton->subscribeEvent(CEGUI::PushButton::EventClicked,
-	            // CEGUI::Event::Subscriber(&MyFrameListener::quit, 
-	              //      _framelistener));
-
-	  //Attaching buttons
-  	sheet->addChild(menu);
-	CEGUI::System::getSingleton().getDefaultGUIContext().setRootWindow(sheet);
-
-	};
-
-/*
-	bool keyPressed(const OIS::KeyEvent& evt);
-  	bool keyReleased(const OIS::KeyEvent& evt);
-  	bool mouseMoved(const OIS::MouseEvent& evt);
-  	bool mousePressed(const OIS::MouseEvent& evt, OIS::MouseButtonID id);
-  	bool mouseReleased(const OIS::MouseEvent& evt, OIS::MouseButtonID id);
-
-  	CEGUI::MouseButton convertMouseButton(OIS::MouseButtonID id);
-*/
-
-
-
-	
 };
 
 #endif

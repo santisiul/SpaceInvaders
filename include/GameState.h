@@ -40,6 +40,7 @@ class GameState {
   virtual void exit () = 0;
   virtual void pause () = 0;
   virtual void resume () = 0;
+  virtual void quit();
 
   // Gestión básica para el tratamiento
   // de eventos de teclado y ratón.

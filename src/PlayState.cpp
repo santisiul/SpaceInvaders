@@ -14,6 +14,14 @@ PlayState::enter ()
   _viewport = _root->getAutoCreatedWindow()->addViewport(_camera);
   // Nuevo background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
+   _sceneMgr->setSkyBox(true, "skybox");
+
+  _loopTrack = GameManager::getSingletonPtr()->getTrackManager()->load("In a Heartbeat.mp3");
+  _loopTrack->play();
+
+  _shoot = GameManager::getSingletonPtr()->getSoundFXManager()->load("quonux_shoot.wav");
+   _explode = GameManager::getSingletonPtr()->getSoundFXManager()->load("exploding.wav");
+
 
   fisics = new Fisics();
   //parent = new Enemy();
@@ -58,11 +66,13 @@ PlayState::exit ()
 {
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
+  _loopTrack->stop();
 }
 
 void
 PlayState::pause()
-{
+{ 
+  pushState(PauseState::getSingletonPtr());
 }
 
 void
@@ -70,6 +80,11 @@ PlayState::resume()
 {
   // Se restaura el background colour.
   _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
+}
+
+void 
+PlayState::quit(){
+  _exitGame = true;
 }
 
 bool
@@ -133,13 +148,16 @@ PlayState::keyPressed
 {
   // Tecla p --> PauseState.
   if (e.key == OIS::KC_P) {
-    pushState(PauseState::getSingletonPtr());
+    pause();
   }
+
 
   if(e.key == OIS::KC_LEFT)   axisX = -1; 
   if(e.key == OIS::KC_RIGHT)  axisX = 1;
 
   if(e.key == OIS::KC_SPACE){
+   // _shoot->play();
+
     shootProjectile(player);
   }
 }
@@ -189,6 +207,9 @@ PlayState::getSingleton ()
 
 void PlayState::shootProjectile(GameObject* shooter){
     
+    _shoot->play();
+    //_explode->play();
+
     bool empty = true;
     Projectile* bullet;
 
@@ -209,4 +230,9 @@ void PlayState::shootProjectile(GameObject* shooter){
 
     bullet->start(shooter);
    
+}
+
+
+void PlayState::soundExplode(){
+  _explode->play();
 }

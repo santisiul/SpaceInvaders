@@ -25,9 +25,14 @@
 #include <Ogre.h>
 #include <OgreSingleton.h>
 #include <OIS/OIS.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_mixer.h>
 
 #include "InputManager.h"
+#include "TrackManager.h"
+#include "SoundFXManager.h"
 #include "UI.h"
+#include "File.h"
 
 class GameState;
 
@@ -35,6 +40,7 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
 {
  public:
   UI* ui;
+  File * file;
   GameManager ();
   ~GameManager (); // Limpieza de todos los estados.
 
@@ -45,7 +51,13 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
   void changeState (GameState* state);
   void pushState (GameState* state);
   void popState ();
+  void quit();
   
+  TrackManager* getTrackManager () { return _pTrackManager; }
+  SoundFXManager* getSoundFXManager () { return _pSoundFXManager; }
+
+ // TrackPtr getTrackPtr () { return _mainTrack; }
+  //SoundFXPtr getSoundFXPtr () { return _simpleEffect; }
   // Heredados de Ogre::Singleton.
   static GameManager& getSingleton ();
   static GameManager* getSingletonPtr ();
@@ -59,7 +71,7 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
   // Funciones de configuración.
   void loadResources ();
   bool configure ();
-  
+  bool _initSDL();
   // Heredados de FrameListener.
   bool frameStarted (const Ogre::FrameEvent& evt);
   bool frameEnded (const Ogre::FrameEvent& evt);
@@ -73,11 +85,17 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
   bool mouseMoved (const OIS::MouseEvent &e);
   bool mousePressed (const OIS::MouseEvent &e, OIS::MouseButtonID id);
   bool mouseReleased (const OIS::MouseEvent &e, OIS::MouseButtonID id);
+  CEGUI::MouseButton convertMouseButton(OIS::MouseButtonID id);
   
   // Gestor de eventos de entrada.
   InputManager *_inputMgr;
   // Estados del juego.
   std::stack<GameState*> _states;
+  // Manejadores del sonido.
+  TrackManager* _pTrackManager;
+  SoundFXManager* _pSoundFXManager;
+  //TrackPtr _mainTrack;
+  //SoundFXPtr _simpleEffect;
 };
 
 #endif

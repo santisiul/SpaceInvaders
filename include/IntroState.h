@@ -27,6 +27,8 @@
 #include "GameState.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "TrackManager.h"
+#include "SoundFXManager.h"
 
 class IntroState : public Ogre::Singleton<IntroState>, public GameState
 {
@@ -51,6 +53,8 @@ class IntroState : public Ogre::Singleton<IntroState>, public GameState
   // Heredados de Ogre::Singleton.
   static IntroState& getSingleton ();
   static IntroState* getSingletonPtr ();
+  
+  void quit();
 
  protected:
   Ogre::Root* _root;
@@ -60,6 +64,9 @@ class IntroState : public Ogre::Singleton<IntroState>, public GameState
 
   bool _exitGame;
 
+  TrackPtr _mainTrack;
+  SoundFXPtr _simpleEffect;
+  Player* player;
   
 };
 
