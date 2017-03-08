@@ -42,15 +42,15 @@ IntroState::enter ()
   
   cout<<"Introstate Enter"<<endl;
   player = new Player();
-  player->getNode()->setPosition(Ogre::Vector3(-4,30,55));
+  player->getNode()->setPosition(Ogre::Vector3(-4,15,55));
   player->getNode()->yaw(Ogre::Degree(210));
+  player->getNode()->pitch(Ogre::Degree(-10));
 
-  //player = new Player("Sphere.mesh", "player", "red.material");
-  //player->getNode()->setPosition(Ogre::Vector3(0,0,30));
-  //GameManager::getSinglentonPtr()
+  enemy = new Enemy();
+  enemy->getNode()->setPosition(Ogre::Vector3(5,13,60));
+
  
   _mainTrack = GameManager::getSingletonPtr()->getTrackManager()->load("Space Fighter Loop.mp3");
-  //_simpleEffect = GameManager::getSingletonPtr()->getSoundFXManager()->load("nightmare.wav");
 
   // Reproducción del track principal...
   _mainTrack->play();

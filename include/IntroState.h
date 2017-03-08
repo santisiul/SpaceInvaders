@@ -67,6 +67,7 @@ class IntroState : public Ogre::Singleton<IntroState>, public GameState
   TrackPtr _mainTrack;
   SoundFXPtr _simpleEffect;
   Player* player;
+  Enemy* enemy;
   
 };
 
