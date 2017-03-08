@@ -3,6 +3,7 @@
 <GUILayout version="4" >
     <Window type="TaharezLook/FrameWindow" name="credits" >
         <Property name="Area" value="{{0,0},{0,0},{0.35,0},{0.7,0}}" />
+        <Property name="Font" value="DejaVuSans-12" />
         <Property name="Alpha" value="0.8" />
         <Property name="FrameEnabled" value="false" />
         <Property name="SizingEnabled" value="false" />
@@ -12,15 +13,16 @@
         <Property name="CloseButtonEnabled" value="false" />
         <Property name="HorizontalAlignment" value="Centre" />
         <Window type="TaharezLook/StaticText" name="title" >
-            <Property name="Area" value="{{0,0},{0.14,0},{0.36,0},{0.28,0}}" />
+            <Property name="Area" value="{{0,0},{0.14,0},{0.5,0},{0.28,0}}" />
+            <Property name="Font" value="DejaVuSans-15" />
             <Property name="Text" value="Space Invaders" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzFormatting" value="CentreAligned" />
-            <Property name="HorzScrollPageSize" value="149" />
+            <Property name="HorzScrollPageSize" value="212" />
             <Property name="VertScrollPageSize" value="59" />
             <Property name="HorizontalAlignment" value="Centre" />
-            <Property name="HorzScrollDocumentSize" value="122" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorzScrollDocumentSize" value="153" />
+            <Property name="VertScrollDocumentSize" value="23.2812" />
         </Window>
         <Window type="TaharezLook/StaticText" name="item2" >
             <Property name="Area" value="{{0.3,66},{0.4,-30},{0.7,66},{0.5,-48}}" />
@@ -28,8 +30,8 @@
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzScrollPageSize" value="167" />
             <Property name="VertScrollPageSize" value="20" />
-            <Property name="HorzScrollDocumentSize" value="155" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorzScrollDocumentSize" value="109" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/StaticText" name="item3" >
             <Property name="Area" value="{{0.4,51},{0.43,-30},{0.7,20},{0.53,-44}}" />
@@ -37,8 +39,8 @@
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzScrollPageSize" value="91" />
             <Property name="VertScrollPageSize" value="24" />
-            <Property name="HorzScrollDocumentSize" value="89" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorzScrollDocumentSize" value="64" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/StaticText" name="item4" >
             <Property name="Area" value="{{0.3,-87},{0.42,-26},{0.64,-112},{0.52,-36}}" />
@@ -46,44 +48,56 @@
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzScrollPageSize" value="115" />
             <Property name="VertScrollPageSize" value="28" />
-            <Property name="HorzScrollDocumentSize" value="117" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorzScrollDocumentSize" value="81" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/StaticText" name="item5" >
-            <Property name="Area" value="{{0.3,66},{0.54,0},{0.7,66},{0.64,-18}}" />
+            <Property name="Area" value="{{0,0},{0.58,0},{0.8,0},{0.68,-18}}" />
+            <Property name="Font" value="DejaVuSans-8" />
             <Property name="Text" value="&quot;Space Fighter Loop&quot; Kevin MacLeod (incompetech.com)" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="HorzScrollPageSize" value="167" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="346" />
             <Property name="VertScrollPageSize" value="20" />
-            <Property name="HorzScrollDocumentSize" value="460" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="323" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/StaticText" name="item6" >
-            <Property name="Area" value="{{0.3,65},{0.54,-15},{0.7,65},{0.64,-33}}" />
+            <Property name="Area" value="{{0,0},{0.57,-15},{0.8,0},{0.67,-33}}" />
+            <Property name="Font" value="DejaVuSans-8" />
             <Property name="Text" value="&quot;In a Heartbeat&quot; Kevin MacLeod (incompetech.com)" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="HorzScrollPageSize" value="167" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="346" />
             <Property name="VertScrollPageSize" value="20" />
-            <Property name="HorzScrollDocumentSize" value="422" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="295" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/StaticText" name="item7" >
-            <Property name="Area" value="{{0.3,66},{0.65,0},{0.7,66},{0.75,-25}}" />
+            <Property name="Area" value="{{0,0},{0.65,0},{0.8,0},{0.75,-18}}" />
+            <Property name="Font" value="DejaVuSans-8" />
             <Property name="Text" value="Licensed under Creative Commons: By Attribution 3.0 License" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="HorzScrollPageSize" value="167" />
-            <Property name="VertScrollPageSize" value="13" />
-            <Property name="HorzScrollDocumentSize" value="498" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="346" />
+            <Property name="VertScrollPageSize" value="20" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="355" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/StaticText" name="item8" >
-            <Property name="Area" value="{{0.3,66},{0.61,0},{0.7,66},{0.71,-18}}" />
+            <Property name="Area" value="{{0,0},{0.62,0},{0.8,0},{0.72,-18}}" />
+            <Property name="Font" value="DejaVuSans-8" />
             <Property name="Text" value="&quot;http://creativecommons.org/licenses/by/3.0/&quot;" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="HorzScrollPageSize" value="167" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="346" />
             <Property name="VertScrollPageSize" value="20" />
-            <Property name="HorzScrollDocumentSize" value="368" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="260" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/Button" name="ReturnButton" >
             <Property name="Area" value="{{0,0},{0.8,0},{0.55,0},{0.87,0}}" />

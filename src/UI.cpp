@@ -181,11 +181,16 @@ bool UI::pause(const CEGUI::EventArgs &e)
 
   CEGUI::Window* panel = gameWindow->getChildRecursive("panel");
   bool show;
-  if (panel->isVisible()){ show = false; panel->moveToBack();}
-  else{ show = true; panel->moveToFront();}
+  if (panel->isVisible()){ 
+    show = false; panel->moveToBack();
+    PlayState::getSingletonPtr()->resume();
+  }
+  else{ 
+    show = true; panel->moveToFront();
+    PlayState::getSingletonPtr()->pause();
+  }
   
   panel->setVisible(show);
-  PlayState::getSingletonPtr()->pause();
   // GameManager::getSingletonPtr()->pushState(PauseState::getSingletonPtr());
 
   //gameWindow->getChildRecursive("restartButton")->setVisible(show);
@@ -225,6 +230,7 @@ bool UI::finish(const CEGUI::EventArgs &e)
   gameWindow->getChildRecursive("panel")->setVisible(false);
 
   cout<<"Regresa a intro UI finish"<<endl;
+  PlayState::getSingletonPtr()->resume();
   GameManager::getSingletonPtr()->changeState(IntroState::getSingletonPtr());
 
   //gameWindow->getChildRecursive("restartButton")->setVisible(false);
@@ -263,6 +269,7 @@ bool UI::restart(const CEGUI::EventArgs &e)
   CEGUI::Window* gameWindow = rootWindow->getChildRecursive("game");
   gameWindow->getChildRecursive("panel")->setVisible(false);
   // gameWindow->getChildRecursive("restartButton")->setVisible(false);
+  PlayState::getSingletonPtr()->resume();
   GameManager::getSingletonPtr()->changeState(PlayState::getSingletonPtr());
 
 

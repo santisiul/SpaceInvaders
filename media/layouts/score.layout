@@ -13,15 +13,16 @@
         <Property name="CloseButtonEnabled" value="false" />
         <Property name="HorizontalAlignment" value="Centre" />
         <Window type="TaharezLook/StaticText" name="title" >
-            <Property name="Area" value="{{0,0},{0.14,0},{0.36,0},{0.28,0}}" />
+            <Property name="Area" value="{{0,0},{0.14,0},{0.4,0},{0.28,0}}" />
+            <Property name="Font" value="DejaVuSans-15" />
             <Property name="Text" value="Space Invaders" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzFormatting" value="CentreAligned" />
-            <Property name="HorzScrollPageSize" value="149" />
+            <Property name="HorzScrollPageSize" value="167" />
             <Property name="VertScrollPageSize" value="59" />
             <Property name="HorizontalAlignment" value="Centre" />
-            <Property name="HorzScrollDocumentSize" value="122" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorzScrollDocumentSize" value="153" />
+            <Property name="VertScrollDocumentSize" value="23.2812" />
         </Window>
         <Window type="TaharezLook/StaticText" name="section" >
             <Property name="Area" value="{{-0.1,0},{0.33,0},{0.26,0},{0.45,-36}}" />
@@ -30,11 +31,12 @@
             <Property name="HorzScrollPageSize" value="149" />
             <Property name="VertScrollPageSize" value="12" />
             <Property name="HorizontalAlignment" value="Centre" />
-            <Property name="HorzScrollDocumentSize" value="45" />
-            <Property name="VertScrollDocumentSize" value="18.625" />
+            <Property name="HorzScrollDocumentSize" value="33" />
+            <Property name="VertScrollDocumentSize" value="12.8047" />
         </Window>
         <Window type="TaharezLook/StaticText" name="text" >
             <Property name="Area" value="{{0,0},{0.42,-12},{0.5,0},{0.8,-12}}" />
+            <Property name="Font" value="DejaVuSans-10" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="VertScrollbar" value="true" />
             <Property name="VertFormatting" value="TopAligned" />

@@ -5,24 +5,7 @@ ignacio    1200 pts
 pablo    2000 pts
 miguel    1700 pts
 fernado    3000 pts
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+roberto    1100 pts
+edgar    2100 pts
+axel    1600 pts
+daniel    2200 pts

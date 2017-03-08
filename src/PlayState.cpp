@@ -111,8 +111,8 @@ PlayState::pause()
 void
 PlayState::resume()
 {
-  // Se restaura el background colour.
-  _viewport->setBackgroundColour(Ogre::ColourValue(0.0, 0.0, 1.0));
+  timeScale = 1;
+  _loopTrack->play();
 }
 
 void 
