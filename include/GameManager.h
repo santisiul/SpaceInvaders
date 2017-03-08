@@ -39,8 +39,6 @@ class GameState;
 class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManager>, public OIS::KeyListener, public OIS::MouseListener
 {
  public:
-  UI* ui;
-  File * file;
   GameManager ();
   ~GameManager (); // Limpieza de todos los estados.
 
@@ -56,11 +54,12 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
   TrackManager* getTrackManager () { return _pTrackManager; }
   SoundFXManager* getSoundFXManager () { return _pSoundFXManager; }
 
- // TrackPtr getTrackPtr () { return _mainTrack; }
-  //SoundFXPtr getSoundFXPtr () { return _simpleEffect; }
   // Heredados de Ogre::Singleton.
   static GameManager& getSingleton ();
   static GameManager* getSingletonPtr ();
+
+  UI* ui;
+  File * file;
 
  protected:
   Ogre::Root* _root;
@@ -94,8 +93,7 @@ class GameManager : public Ogre::FrameListener, public Ogre::Singleton<GameManag
   // Manejadores del sonido.
   TrackManager* _pTrackManager;
   SoundFXManager* _pSoundFXManager;
-  //TrackPtr _mainTrack;
-  //SoundFXPtr _simpleEffect;
+ 
 };
 
 #endif

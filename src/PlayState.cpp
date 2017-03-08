@@ -22,38 +22,54 @@ PlayState::enter ()
   _shoot = GameManager::getSingletonPtr()->getSoundFXManager()->load("quonux_shoot.wav");
    _explode = GameManager::getSingletonPtr()->getSoundFXManager()->load("exploding.wav");
 
+   cout<<"playState Enter"<<endl;
 
   fisics = new Fisics();
-  //parent = new Enemy();
   player = new Player();
-  player->getNode()->setPosition(Ogre::Vector3(0,0,30));
 
+  player->getNode()->setPosition(Ogre::Vector3(0,0,30));
   fisics->subscribe(player);
 
-  for (int i = 0; i < 20; ++i)
-  {
-    Projectile* projectile = new Projectile();
-    //projectile->deactivate();
-    projectile->getNode()->setPosition(Ogre::Vector3(0,0,80));
-    projectiles.push_back(projectile);
-    fisics->subscribe(projectile);
-  }
+  // //Se crea pool de proyectiles
+  // for (int i = 0; i < 20; ++i)
+  // {
+  //   Projectile* projectile = new Projectile();
+  //   //projectile->deactivate();
+  //   projectile->getNode()->setPosition(Ogre::Vector3(0,0,80));
+  //   projectiles.push_back(projectile);
+  //   fisics->subscribe(projectile);
+  // }
 
+  //coloca a los enemigos
+  numEnemies = 30;
   int z = 0;
   int x = 0;
-  for (int i = 0; i < 30; ++i)
+  for (int i = 0; i < numEnemies; ++i)
   {
-    if (i%10 == 0){ z-=7; x=0;}
-   // cout<<x;
+    if (i%10 == 0){ z-=8; x=0;}
     Enemy* enemy = new Enemy();
-    enemy->getNode()->setPosition(Ogre::Vector3(x*3 -15, 0, z));
+    enemy->getNode()->setPosition(Ogre::Vector3(x*4 -20, 0, z));
     Enemies.push_back(enemy);
     fisics->subscribe(enemy);
 
     x++;
   }
+
+  x=0; z=20;
+  for (int i = 0; i < 30; ++i)
+  {
+    if(i%5 == 0){x+=8;}
+    if(i%15 == 0){z+=1; x=0;}
+    Wall* wall = new Wall();
+    wall->getNode()->setPosition(Ogre::Vector3(x-15, 0, z));
+    //Walls.push_back(wall);
+    fisics->subscribe(wall);
+    x++;
+  }
     
   _exitGame = false;
+  pts = 0;
+  timeScale = 1;
   axisX = 0;
   time = 0;
   chronometer = 0;
@@ -64,15 +80,32 @@ PlayState::enter ()
 void
 PlayState::exit ()
 {
+  cout<<"PlayState exit"<<endl;
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
-  _loopTrack->stop();
+   _loopTrack->stop();
+
+  //delete fisics;
+  //delete player;
+ // / for (std::vector<Enemy*>::iterator i = Enemies.begin(); i != Enemies.end(); ++i)
+ //  {
+ //    delete (*i);
+ //   }
+   Enemies.clear();
+ //   for (std::vector<Projectile*>::iterator i = projectiles.begin(); i != projectiles.end(); ++i)
+ //   {
+ //     delete (*i);
+ //   }
+   projectiles.clear();
+
 }
 
 void
 PlayState::pause()
 { 
-  pushState(PauseState::getSingletonPtr());
+  //pushState(PauseState::getSingletonPtr());
+  timeScale = 0;
+  _loopTrack->pause();
 }
 
 void
@@ -91,7 +124,8 @@ bool
 PlayState::frameStarted
 (const Ogre::FrameEvent& evt)
 {
-  deltaT = evt.timeSinceLastFrame;
+
+  deltaT = evt.timeSinceLastFrame * timeScale;
   time *= deltaT;
 
   if(axisX != 0)
@@ -123,11 +157,7 @@ PlayState::frameStarted
   
  
   //Calcula colisiones de objetos
-  //if(chronometer > 1){
-    fisics->calculateCollisions();
-   // chronometer = 0;
-  //}
-  
+    fisics->calculateCollisions();  
   
   return true;
 }
@@ -226,6 +256,7 @@ void PlayState::shootProjectile(GameObject* shooter){
     {
       bullet = new Projectile();
       projectiles.push_back(bullet);
+      fisics->subscribe(bullet);
     }
 
     bullet->start(shooter);
@@ -235,4 +266,23 @@ void PlayState::shootProjectile(GameObject* shooter){
 
 void PlayState::soundExplode(){
   _explode->play();
+}
+
+void PlayState::destroyEnemy(){
+  numEnemies--;
+  if (numEnemies == 0)
+  {
+    GameManager::getSingletonPtr()->ui->winner(true);
+    timeScale = 0;
+  }
+  pts += 100;
+  //instroducir puntos en gui
+  stringstream sstr; sstr << pts << " pts";
+  GameManager::getSingletonPtr()->ui->setScore(sstr.str());
+}
+
+void PlayState::lose(){
+  GameManager::getSingletonPtr()->ui->winner(false);
+  timeScale = 0;
+  //pause();
 }

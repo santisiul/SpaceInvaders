@@ -3,6 +3,7 @@
 #include "PlayState.h"
 #include "IntroState.h"
 #include "PauseState.h"
+#include "File.h"
 
 void
 UI::createGUI(){
@@ -67,7 +68,7 @@ UI::createGUI(){
 		                    this));
 
 		CEGUI::Window* finish = game->getChild("panel")->getChild("finishButton");
-		finish->setVisible(false);
+		//finish->setVisible(false);
 		  finish->subscribeEvent(CEGUI::PushButton::EventClicked,
 		             CEGUI::Event::Subscriber(&UI::finish,
 		                    this));
@@ -133,17 +134,17 @@ bool UI::score(const CEGUI::EventArgs &e)
   CEGUI::Window* scoreWindow = rootWindow->getChildRecursive("score");
   scoreWindow->setVisible(true);
 
-  // stringstream sstrm; sstrm << "";
+   stringstream sstrm; sstrm << "";
+  File* file = GameManager::getSingletonPtr()->file;
 
-
-  // for (int i = 0; i < file->getGamers(); ++i)
-  // {
-  //    sstrm << file->getGamer(i) << endl;
-  // }
-  // //sstrm << "[vert-alignment='top']";
-  // cout<<"gamers"<<file->getGamers()<<endl;
-  // cout<< sstrm.str() <<endl;;
-  // scoreWindow->getChild("text")->setText(sstrm.str());
+  for (int i = 0; i < file->getGamers(); ++i)
+  {
+     sstrm << file->getGamer(i) << endl;
+  }
+  //sstrm << "[vert-alignment='top']";
+  //cout<<"gamers"<<file->getGamers()<<endl;
+  cout<< sstrm.str() <<endl;;
+  scoreWindow->getChild("text")->setText(sstrm.str());
   return true;
 }
 
@@ -151,7 +152,9 @@ bool UI::play(const CEGUI::EventArgs &e)
 {
   CEGUI::Window* rootWindow=  CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow();
   rootWindow->getChildRecursive("menu")->setVisible(false);
-  rootWindow->getChildRecursive("game")->setVisible(true);
+  CEGUI::Window* game = rootWindow->getChildRecursive("game");
+  game->setVisible(true);
+  game->moveToFront();
 
   GameManager::getSingletonPtr()->changeState(PlayState::getSingletonPtr());
   // _camera->setPosition(Ogre::Vector3(0,0,50));
@@ -178,10 +181,11 @@ bool UI::pause(const CEGUI::EventArgs &e)
 
   CEGUI::Window* panel = gameWindow->getChildRecursive("panel");
   bool show;
-  if (panel->isVisible()){ show = false; }
-  else{ show = true; }
+  if (panel->isVisible()){ show = false; panel->moveToBack();}
+  else{ show = true; panel->moveToFront();}
   
-  gameWindow->getChildRecursive("panel")->setVisible(show);
+  panel->setVisible(show);
+  PlayState::getSingletonPtr()->pause();
   // GameManager::getSingletonPtr()->pushState(PauseState::getSingletonPtr());
 
   //gameWindow->getChildRecursive("restartButton")->setVisible(show);
@@ -191,14 +195,36 @@ bool UI::pause(const CEGUI::EventArgs &e)
 
 bool UI::finish(const CEGUI::EventArgs &e)
 {
+	CEGUI::Window* rootWindow=  CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow();
+	CEGUI::Window* winWindow = rootWindow->getChildRecursive("win");
+	string name = winWindow->getChildRecursive("nameEditbox")->getText().c_str();
+
+	CEGUI::Window* game = rootWindow->getChildRecursive("game");
+	CEGUI::Window* scoreWindow = game->getChild("score");
+	string pts = scoreWindow->getText().c_str();
+
+	File* file = GameManager::getSingletonPtr()->file;
+
+	if (winWindow->isVisible() && name != "")
+	{
+		stringstream sstrm; sstrm << name << "    " <<pts;
+		cout<<sstrm.str()<<endl;
+		file->addGamer(sstrm.str());
+	}
   
-  CEGUI::Window* rootWindow=  CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow();
-  rootWindow->getChildRecursive("menu")->setVisible(true);
+  	file->save();
+
+  CEGUI::Window* menu =rootWindow->getChildRecursive("menu");
+  menu->setVisible(true);
+  menu->moveToFront();
+
   rootWindow->getChildRecursive("game")->setVisible(false);
+  rootWindow->getChildRecursive("win")->setVisible(false);
 
   CEGUI::Window* gameWindow = rootWindow->getChildRecursive("game");
   gameWindow->getChildRecursive("panel")->setVisible(false);
 
+  cout<<"Regresa a intro UI finish"<<endl;
   GameManager::getSingletonPtr()->changeState(IntroState::getSingletonPtr());
 
   //gameWindow->getChildRecursive("restartButton")->setVisible(false);
@@ -237,6 +263,8 @@ bool UI::restart(const CEGUI::EventArgs &e)
   CEGUI::Window* gameWindow = rootWindow->getChildRecursive("game");
   gameWindow->getChildRecursive("panel")->setVisible(false);
   // gameWindow->getChildRecursive("restartButton")->setVisible(false);
+  GameManager::getSingletonPtr()->changeState(PlayState::getSingletonPtr());
+
 
   rootWindow->getChildRecursive("win")->setVisible(false);
 
@@ -245,4 +273,26 @@ bool UI::restart(const CEGUI::EventArgs &e)
   // _camera->lookAt(Ogre::Vector3(0,0,0));
   // inGame = true;
   return true;
+}
+
+bool UI::winner(bool win){
+  CEGUI::Window* rootWindow=  CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow();
+  CEGUI::Window* winWindow = rootWindow->getChildRecursive("win");
+  winWindow->setVisible(true);
+  winWindow->moveToFront();
+  if(win){
+  	winWindow->getChildRecursive("win")->setVisible(true);
+  	winWindow->getChildRecursive("lose")->setVisible(false);
+  }
+  else{
+  	winWindow->getChildRecursive("win")->setVisible(false);
+  	winWindow->getChildRecursive("lose")->setVisible(true);
+  }
+}
+
+void UI::setScore(string score){
+	CEGUI::Window* rootWindow=  CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow();
+  	CEGUI::Window* game = rootWindow->getChildRecursive("game");
+	CEGUI::Window* scoreWindow = game->getChild("score");
+	scoreWindow->setText(score);
 }

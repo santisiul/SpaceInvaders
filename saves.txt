@@ -1,0 +1,28 @@
+luis    2300 pts
+raul    1500 pts
+vicente    1800 pts
+ignacio    1200 pts
+pablo    2000 pts
+miguel    1700 pts
+fernado    3000 pts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

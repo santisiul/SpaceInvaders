@@ -5,6 +5,8 @@
 #include <CEGUI.h>
 #include <RendererModules/Ogre/Renderer.h>
 
+using namespace std;
+
 class UI{
 
  //private:
@@ -23,6 +25,8 @@ class UI{
 	bool pause(const CEGUI::EventArgs &e);
 	bool finish(const CEGUI::EventArgs &e);
 	bool restart(const CEGUI::EventArgs &e);
+	bool winner(bool win);
+	void setScore(string score);
 
 };
 

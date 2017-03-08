@@ -1,0 +1,52 @@
+<scene formatVersion="1.0.1" exported_by="Jarvis" previous_export_time="1488928407.6081429" export_time="1488928768.508268" >
+  <nodes >
+    <node name="space_cruiser_4" >
+      <position y="0.000000" z="-0.000000" x="0.046003" />
+      <rotation qx="0.000000" qw="1.000000" qy="0.000000" qz="-0.000000" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <entity lock_trans_y="False" lock_rot_x="False" lock_trans_x="False" friction_y="1.0" velocity_min="0.0" inertia_tensor="0.4000000059604645" anisotropic_friction="False" actor="False" mass_radius="1.0" friction_x="1.0" lock_trans_z="False" meshFile="Untitled.mesh" damping_rot="0.10000000149011612" name="Untitled" ghost="False" lock_rot_z="False" lock_rot_y="False" velocity_max="0.0" physics_type="STATIC" friction_z="1.0" mass="1.0" damping_trans="0.03999999910593033" />
+    </node>
+    <node name="Lamp" >
+      <position y="5.903862" z="-1.005454" x="4.076245" />
+      <rotation qx="0.169076" qw="0.570947" qy="0.755880" qz="-0.272171" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light name="Lamp" type="point" powerScale="1.0" shadow="true" >
+        <position y="5.903862" z="-1.005454" x="4.076245" />
+        <lightAttenuation linear="0.03333335240683057" quadratic="0.0" constant="1.0" range="5000" />
+        <colourDiffuse b="1.0" g="1.0" r="1.0" />
+        <colourSpecular b="1.0" g="1.0" r="1.0" />
+        <colourShadow b="1.0" g="1.0" r="1.0" />
+      </light>
+    </node>
+    <node name="Camera" >
+      <position y="5.343665" z="6.507640" x="7.481132" />
+      <rotation qx="0.483536" qw="0.780483" qy="0.336872" qz="-0.208704" />
+      <scale y="1.000000" z="1.000000" x="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <camera name="Camera" projectionType="perspective" fov="0.5033799435163735" >
+        <clipping farPlaneDist="100.0" nearPlaneDist="0.10000000149011612" far="100.0" near="0.10000000149011612" />
+      </camera>
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="D:\Files\Compartida\CEDV\enemy\space_cruiser_4.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourBackground b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824" />
+    <colourDiffuse b="0.05087608844041824" g="0.05087608844041824" r="0.05087608844041824" />
+    <colourAmbient b="0.0" g="0.0" r="0.0" />
+  </environment>
+</scene>

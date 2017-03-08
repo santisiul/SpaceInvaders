@@ -11,20 +11,20 @@
         <Property name="VerticalAlignment" value="Centre" />
         <Property name="CloseButtonEnabled" value="false" />
         <Property name="HorizontalAlignment" value="Centre" />
-        <Window type="TaharezLook/StaticText" name="title" >
+        <Window type="TaharezLook/StaticText" name="win" >
             <Property name="Area" value="{{0,0},{0.16,0},{0.36,0},{0.28,0}}" />
-            <Property name="Text" value="Ganaste" />
+            <Property name="Text" value="You Win" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzFormatting" value="CentreAligned" />
             <Property name="HorzScrollPageSize" value="149" />
             <Property name="VertScrollPageSize" value="48" />
             <Property name="HorizontalAlignment" value="Centre" />
-            <Property name="HorzScrollDocumentSize" value="67" />
+            <Property name="HorzScrollDocumentSize" value="66" />
             <Property name="VertScrollDocumentSize" value="18.625" />
         </Window>
         <Window type="TaharezLook/Label" name="nameLabel" >
             <Property name="Area" value="{{0,-120},{0.4,0},{0.2,-120},{0.5,0}}" />
-            <Property name="Text" value="Nombre" />
+            <Property name="Text" value="Name" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorizontalAlignment" value="Centre" />
         </Window>
@@ -43,6 +43,17 @@
             <Property name="Text" value="  Restart" />
             <Property name="HorizontalAlignment" value="Right" />
             <Property name="HorzLabelFormatting" value="LeftAligned" />
+        </Window>
+        <Window type="TaharezLook/StaticText" name="lose" >
+            <Property name="Area" value="{{0,0},{0.16,0},{0.36,0},{0.28,0}}" />
+            <Property name="Text" value="You lost" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Property name="HorzFormatting" value="CentreAligned" />
+            <Property name="HorzScrollPageSize" value="149" />
+            <Property name="VertScrollPageSize" value="48" />
+            <Property name="HorizontalAlignment" value="Centre" />
+            <Property name="HorzScrollDocumentSize" value="65" />
+            <Property name="VertScrollDocumentSize" value="18.625" />
         </Window>
     </Window>
 </GUILayout>

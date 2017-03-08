@@ -2,6 +2,10 @@
 
 Fisics::Fisics(){}
 
+Fisics::~Fisics(){
+	gameObjects.clear();
+}
+
 void Fisics::subscribe(GameObject* gameObject){
 	gameObjects.push_back(gameObject);
 }

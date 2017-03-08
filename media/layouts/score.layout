@@ -34,10 +34,12 @@
             <Property name="VertScrollDocumentSize" value="18.625" />
         </Window>
         <Window type="TaharezLook/StaticText" name="text" >
-            <Property name="Area" value="{{0,0},{0.42,0},{0.3,0},{0.72,0}}" />
+            <Property name="Area" value="{{0,0},{0.42,-12},{0.5,0},{0.8,-12}}" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
-            <Property name="HorzScrollPageSize" value="122" />
-            <Property name="VertScrollPageSize" value="139" />
+            <Property name="VertScrollbar" value="true" />
+            <Property name="VertFormatting" value="TopAligned" />
+            <Property name="HorzScrollPageSize" value="212" />
+            <Property name="VertScrollPageSize" value="180" />
             <Property name="HorizontalAlignment" value="Centre" />
         </Window>
         <Window type="TaharezLook/Button" name="ReturnButton" >

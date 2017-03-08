@@ -6,9 +6,9 @@
         <Property name="MaxSize" value="{{1,0},{1,0}}" />
         <Property name="VerticalAlignment" value="Centre" />
         <Property name="HorizontalAlignment" value="Centre" />
-        <Window type="TaharezLook/StaticText" name="clock" >
+        <Window type="TaharezLook/StaticText" name="score" >
             <Property name="Area" value="{{0,-200},{0,0},{0.1,-200},{0.1,-19}}" />
-            <Property name="Text" value="Pts" />
+            <Property name="Text" value="0 Pts" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
             <Property name="HorzScrollPageSize" value="114" />
             <Property name="VertScrollPageSize" value="38" />

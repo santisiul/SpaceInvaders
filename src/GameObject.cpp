@@ -17,7 +17,9 @@ GameObject::GameObject(string mesh, string material, Ogre::SceneNode* parent){
 	speed = 1;
 }
 
-GameObject::~GameObject(){}
+GameObject::~GameObject(){
+	delete node;
+}
 
 void GameObject::activate(){ enable = true; }
 void GameObject::deactivate(){ enable = false; }

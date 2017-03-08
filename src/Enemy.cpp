@@ -1,7 +1,7 @@
 #include "Enemy.h"
 
-string Enemy::mesh = "Cube.mesh";
-string Enemy::material = "red";
+string Enemy::mesh = "space_cruiser.mesh";
+string Enemy::material = "space_cruiser_4";
 
 Enemy::Enemy(): GameObject(mesh, material){ 
 	dir=1; 
@@ -14,7 +14,9 @@ Enemy::Enemy(Ogre::SceneNode* parent): GameObject(mesh, material, parent){
 	setCollider(0.8);
 	setTag("enemy");
 	speed = 8;
-} 
+}
+Enemy::~Enemy(){}
+
 void Enemy::deactivate(){
 	GameObject::deactivate();
 	getNode()->setPosition(Ogre::Vector3(-30,0,80));
@@ -29,10 +31,11 @@ void Enemy::update(Ogre::Real deltaT){
 }
 
 void Enemy::onCollision(GameObject* collision){
-	/*if(getTag() != collision->getShooter()->getTag()){
-		deactivate();
-		
-	}*/	
+	// if(getTag() != collision->getShooter()->getTag()){
+	// 	deactivate();
+
+	// }	
+
 }
 
 bool Enemy::shoot(Ogre::Vector3 player){

@@ -32,6 +32,7 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "Projectile.h"
+#include "Wall.h"
 #include "Fisics.h"
 
 class PlayState : public Ogre::Singleton<PlayState>, public GameState
@@ -61,6 +62,8 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   void shootProjectile(GameObject* shooter);
   void soundExplode();
   void quit();
+  void destroyEnemy();
+  void lose();
 
  protected:
   Ogre::Root* _root;
@@ -74,15 +77,18 @@ class PlayState : public Ogre::Singleton<PlayState>, public GameState
   SoundFXPtr _shoot;
   SoundFXPtr _explode;
 
+  int numEnemies;
+  int pts;
+  Ogre::Real timeScale;
   Ogre::Real time;
   Ogre::Real deltaT;
   Ogre::Real chronometer;
   Fisics* fisics;
   Player* player;
-  Enemy* parent;
   Ogre::Real axisX;
   std::vector<Enemy*> Enemies;
   std::vector<Projectile*> projectiles;
+  std::vector<Wall*> Walls;
 };
 
 #endif

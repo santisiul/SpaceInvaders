@@ -19,8 +19,8 @@ IntroState::enter ()
   }
 
   
-  _camera->setPosition(Ogre::Vector3(0,40,70));
-  _camera->lookAt(Ogre::Vector3(0,0,0));
+  _camera->setPosition(Ogre::Vector3(0,20,75));
+  _camera->lookAt(Ogre::Vector3(0,0,-10));
   _camera->setNearClipDistance(5);
   _camera->setFarClipDistance(10000);
 
@@ -30,16 +30,17 @@ IntroState::enter ()
 
   _sceneMgr->setAmbientLight(Ogre::ColourValue(1, 1, 1));
 
-  Ogre::SceneNode* node2 = _sceneMgr->createSceneNode("light");
+ /* Ogre::SceneNode* node2 = _sceneMgr->createSceneNode("light");
   _sceneMgr->setShadowTechnique(Ogre::SHADOWTYPE_STENCIL_ADDITIVE); 
   Ogre::Light* light = _sceneMgr->createLight("Light1");
   light->setType(Ogre::Light::LT_DIRECTIONAL);
   light->setDirection(Ogre::Vector3(1,-1,-1));
   node2->attachObject(light);
   _sceneMgr->getRootSceneNode()->addChild(node2);
-
+  */
   _sceneMgr->setSkyBox(true, "skybox");
   
+  cout<<"Introstate Enter"<<endl;
   player = new Player();
   player->getNode()->setPosition(Ogre::Vector3(-4,30,55));
   player->getNode()->yaw(Ogre::Degree(210));
@@ -62,9 +63,11 @@ IntroState::exit()
 {
   //if(_mainTrack->isPlaying())
   _mainTrack->stop();
+  //delete player;
 
   _sceneMgr->clearScene();
   _root->getAutoCreatedWindow()->removeAllViewports();
+  cout<<"introState Exit"<<endl;
   
 }
 

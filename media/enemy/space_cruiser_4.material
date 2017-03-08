@@ -1,0 +1,49 @@
+// space_cruiser_4 genrated by blender2ogre 0.6.0
+
+material space_cruiser_4 
+{
+    receive_shadows on 
+
+    technique
+    {
+        pass space_cruiser_4
+        {
+            ambient 0.33833956718444824 0.5879999399185181 0.1648085117340088 0.0
+            diffuse 0.33833956718444824 0.5879999399185181 0.1648085117340088 0.0
+            specular 0.12485547696234889 0.12109166078628775 0.020194798773376377 0.0 2.75
+            emissive 0.0 0.0 0.0 0.0
+
+            alpha_to_coverage off
+            colour_write on
+            cull_hardware clockwise
+            depth_check on
+            depth_func less_equal
+            depth_write on
+            illumination_stage 
+            light_clip_planes off
+            light_scissor off
+            lighting on
+            normalise_normals off
+            polygon_mode solid
+            scene_blend one zero
+            scene_blend_op add
+            shading gouraud
+            transparent_sorting on
+
+            texture_unit 
+            {
+                texture space_cruiser_4_color.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op modulate
+            }
+            texture_unit 
+            {
+                texture space_cruiser_4_color.png
+                tex_address_mode wrap
+                scale 1.0 1.0
+                colour_op alpha_blend
+            }
+        }
+    }
+}

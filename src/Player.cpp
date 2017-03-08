@@ -1,10 +1,13 @@
 #include "Player.h"
+#include "PlayState.h"
 
 Player::Player(string mesh, string material): GameObject(mesh, material){ 
 	setTag("player");
 	setCollider(1);
 	speed = 15;
+	lives = 3;
 }
+Player::~Player(){}
 //Player::Player(string mesh, string nameNode, string material, Ogre::SceneNode* parent): GameObject(mesh, nameNode, material, parent){}
 
 void Player::update(Ogre::Real axisX, Ogre::Real deltaT){
@@ -21,5 +24,9 @@ void Player::update(Ogre::Real axisX, Ogre::Real deltaT){
 }
 
 void Player::onCollision(GameObject* gameObject){
-	
+	lives--;
+	if(lives == 0)
+		PlayState::getSingletonPtr()->lose();
+  //cout<<lives<<endl;
+
 }

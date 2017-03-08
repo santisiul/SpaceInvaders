@@ -18,13 +18,13 @@ private:
 
 public:
 	File();
+	File(const File &file);
 	~File();
 
 	bool readFile();
 	bool writeFile(string cadena);
 	void addGamer(string cadena);
 	void save();
-
 	int getGamers();
 	string getGamer(int pos);
 

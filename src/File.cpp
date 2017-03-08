@@ -4,7 +4,15 @@ File::File(){
 	nameFile = "saves.txt";
 	readFile();
 }
-File::~File(){}
+File::File(const File &file){
+	nameFile = new char;
+	nameFile = "saves.txt";
+}
+
+File::~File(){
+	delete nameFile;
+}
+
 
 bool File::readFile(){
 	ifstream file;
@@ -16,12 +24,12 @@ bool File::readFile(){
 		 	string tmp;
 		 	getline(file, tmp);
 		 	addGamer(tmp);
-		// 	cout<<text<<endl;
+		 	//cout<<tmp<<endl;
 		 }
 		 file.close();
 	}
 	else {
-		writeFile("");
+		//writeFile("");
 	}
 	return true;
 }

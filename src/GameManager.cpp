@@ -16,6 +16,9 @@ GameManager::~GameManager ()
 {
   file->save();
   delete file;
+  delete ui;
+  delete _pSoundFXManager;
+  delete _pTrackManager;
 
   while (!_states.empty()) {
     _states.top()->exit();

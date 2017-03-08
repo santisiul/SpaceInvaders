@@ -18,6 +18,8 @@ Projectile::Projectile(Ogre::SceneNode* parent): GameObject(mesh, material, pare
 	speed = 50;
 	dir = 1;
 }
+Projectile::~Projectile(){}
+
 GameObject* Projectile::getShooter() const{ return shooter; }
 
 void Projectile::start(GameObject* shooter){ 
@@ -55,5 +57,8 @@ void Projectile::onCollision(GameObject* collision){
 		getNode()->setPosition(Ogre::Vector3(0,0,80));
 		if(collision->getTag() != "player")
 			collision->deactivate();
+
+		if(collision->getTag() == "enemy")
+			PlayState::getSingletonPtr()->destroyEnemy();
 	}	
 }
